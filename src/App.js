@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import Pin from './components/Pin';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useParams,
-} from 'react-router-dom';
+import { Switch, Route, useParams } from 'react-router-dom';
 
 const PinPageRoute = ({ pinsData }) => {
   const { id } = useParams();
@@ -16,7 +11,6 @@ const PinPageRoute = ({ pinsData }) => {
 
 const App = () => {
   const [pinsData, setPinsData] = useState([]);
-  console.log(pinsData);
 
   useEffect(() => {
     fetch('/api/getAllPins')
@@ -26,16 +20,14 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Router>
-        <Switch>
-          <Route exact path='/'>
-            <Dashboard cardsData={pinsData} />
-          </Route>
-          <Route exact path='/pin/:id'>
-            <PinPageRoute pinsData={pinsData} />
-          </Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path='/'>
+          <Dashboard cardsData={pinsData} />
+        </Route>
+        <Route exact path='/pin/:id'>
+          <PinPageRoute pinsData={pinsData} />
+        </Route>
+      </Switch>
     </div>
   );
 };
