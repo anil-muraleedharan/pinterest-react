@@ -1,14 +1,16 @@
 import React from 'react';
 
-const PinPage = ({ pinData }) => {
+const Pin = ({ pinData }) => {
   const { id, imageSrc, title, description } = pinData;
   return (
-    <div>
+    <div className='pin'>
       <img src={imageSrc} alt={`image_${id}`} />
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <div>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };
 
-export default PinPage;
+export default Pin;

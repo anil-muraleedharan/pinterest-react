@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Dashboard from './components/Dashboard';
-import PinPage from './components/PinPage';
+import Pin from './components/Pin';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,7 +11,7 @@ import {
 
 const PinPageRoute = ({ pinsData }) => {
   const { id } = useParams();
-  return <PinPage pinData={pinsData.find((pinData) => pinData.id === +id)} />;
+  return <Pin pinData={pinsData.find((pinData) => pinData.id === +id)} />;
 };
 
 const App = () => {
