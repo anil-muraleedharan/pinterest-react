@@ -6,13 +6,15 @@
 
 .header {
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   background-color: whitesmoke;
 }
 
-.logo {
-  width: 60px;
+.logo,
+.add-icon {
+  width: 40px;
   height: auto;
+  padding: 10px;
 }
 
 .dashboard {
