@@ -1,18 +1,18 @@
 import React from 'react';
-import Pins from './Pins';
+import Cards from './Cards';
 
 const splitColumnWise = (list) => {
   const columns = [[], [], [], [], []];
-  list.forEach((pinData, index) => {
-    columns[index % 5].push(pinData);
+  list.forEach((card, index) => {
+    columns[index % 5].push(card);
   });
   return columns;
 };
 
 const Dashboard = (props) => {
-  const columnsData = splitColumnWise(props.pinsData);
+  const columnsData = splitColumnWise(props.cardsData);
   const columns = columnsData.map((columnData, index) => (
-    <Pins pinsData={columnData} key={index + 1} />
+    <Cards cardsData={columnData} key={index + 1} />
   ));
   return <div className='dashboard'>{columns}</div>;
 };

@@ -16,13 +16,14 @@
   margin: 20px;
 }
 
-.pin {
+.card {
   width: 100%;
   overflow: hidden;
   display: flex;
   align-items: center;
+  background-color: whitesmoke;
 }
 
-.pin > img {
+.card > img {
   width: 100%;
 }
