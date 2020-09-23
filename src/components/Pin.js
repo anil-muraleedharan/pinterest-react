@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Pin = ({ pinData }) => {
-  const { id, imageSrc, title, description } = pinData;
+const Pin = (props) => {
+  const { id } = useParams();
+  const [pinDetails, setPinDetails] = useState({});
+  const { imageSrc, title, description } = pinDetails;
+
+  useEffect(() => {
+    fetch(`/api/getPin/${id}`)
+      .then((res) => res.json())
+      .then(setPinDetails);
+  }, []);
+
   return (
     <div className='pin'>
       <div className='pin-image-container'>
