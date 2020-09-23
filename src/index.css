@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'RobotoCondensed';
+  src: local('RobotoCondensed'),
+    url(./fonts/RobotoCondensed-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'RobotoCondensedBold';
+  src: local('RobotoCondensedBold'),
+    url(./fonts/RobotoCondensed-Bold.ttf) format('truetype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
