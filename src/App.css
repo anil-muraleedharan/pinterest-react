@@ -1,13 +1,27 @@
 .App {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   text-align: center;
+}
+
+.header {
+  display: flex;
+  justify-content: left;
+  background-color: whitesmoke;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
 }
 
 .dashboard {
   display: flex;
   flex-wrap: wrap;
+  align-self: center;
   justify-content: center;
+  height: 90vh;
+  overflow: scroll;
 }
 
 .pinLink {
@@ -38,6 +52,7 @@
   border-radius: 12px;
   background-color: whitesmoke;
   overflow: scroll;
+  align-self: center;
 }
 
 .pin-image-container {
