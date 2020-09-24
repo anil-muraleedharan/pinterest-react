@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
@@ -24,10 +24,10 @@ const App = () => {
           {userData.isAuthenticated ? <Dashboard /> : <IndexPage />}
         </Route>
         <Route exact path='/newPin'>
-          <NewPin />
+          {userData.isAuthenticated ? <NewPin /> : <Redirect to='/' />}
         </Route>
         <Route exact path='/pin/:id'>
-          <Pin />
+          {userData.isAuthenticated ? <Pin /> : <Redirect to='/' />}
         </Route>
       </Switch>
     </div>
