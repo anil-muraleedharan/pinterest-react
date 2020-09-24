@@ -24,36 +24,36 @@ const NewPin = (props) => {
 
   return (
     <div className='new-pin'>
-      <form onSubmit={handleSubmit} className='new-pin-form'>
-        <div className='image-input-container'>
-          <input
-            type='file'
-            id='image-input'
-            className='image-input'
-            onChange={handleImageChange}
-          />
-        </div>
-        <div className='details-input'>
-          <input
-            type='text'
-            id='title-input'
-            placeholder='Give a title for your pin...'
-            className='title-input'
-            onChange={handleTitleChange}
-            value={title}
-          />
-          <br />
-          <input
-            type='text'
-            id='description-input'
-            placeholder='Give a description for your pin...'
-            className='description-input'
-            onChange={handleDescriptionChange}
-            value={description}
-          />
-          <input type='submit' value='Submit' className='submit' />
-        </div>
-      </form>
+      <div className='image-input-container'>
+        <input
+          type='file'
+          id='image-input'
+          className='image-input'
+          onChange={handleImageChange}
+        />
+      </div>
+      <div className='details-input'>
+        <input
+          type='text'
+          id='title-input'
+          placeholder='Give a title for your pin...'
+          className='title-input'
+          onChange={handleTitleChange}
+          value={title}
+        />
+        <br />
+        <input
+          type='text'
+          id='description-input'
+          placeholder='Give a description for your pin...'
+          className='description-input'
+          onChange={handleDescriptionChange}
+          value={description}
+        />
+        <button className='submit' onClick={handleSubmit}>
+          Add Pin
+        </button>
+      </div>
     </div>
   );
 };
