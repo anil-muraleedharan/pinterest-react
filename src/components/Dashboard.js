@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Cards from './Cards';
 
 const splitColumnWise = (list) => {
@@ -10,7 +10,15 @@ const splitColumnWise = (list) => {
 };
 
 const Dashboard = (props) => {
-  const columnsData = splitColumnWise(props.cardsData);
+  const [pinsData, setPinsData] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/getAllPins')
+      .then((res) => res.json())
+      .then(setPinsData);
+  }, []);
+
+  const columnsData = splitColumnWise(pinsData);
   const columns = columnsData.map((columnData, index) => (
     <Cards cardsData={columnData} key={index + 1} />
   ));
