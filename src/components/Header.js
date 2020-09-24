@@ -6,10 +6,10 @@ import add from '../images/add.png';
 const Header = (props) => (
   <div className='header'>
     <Link to='/'>
-      <img src={logo} className='logo' />
+      <img src={logo} className='logo' alt='logo' />
     </Link>
     <Link to='/newPin'>
-      <img src={add} className='add-icon' />
+      <img src={add} className='add-icon' alt='add-icon' />
     </Link>
   </div>
 );
