@@ -4,7 +4,14 @@ import { useParams } from 'react-router-dom';
 const Pin = (props) => {
   const { id } = useParams();
   const [pinDetails, setPinDetails] = useState({});
-  const { imageSrc, title, description, name, avatar_url } = pinDetails;
+  const {
+    imageSrc,
+    title,
+    description,
+    name,
+    avatar_url,
+    createdAt,
+  } = pinDetails;
   console.log(pinDetails);
 
   useEffect(() => {
@@ -29,6 +36,9 @@ const Pin = (props) => {
           />
           <p className='creator-name'>{name}</p>
         </div>
+        <p className='created-time'>
+          Created on {new Date(createdAt).toLocaleString()}
+        </p>
       </div>
     </div>
   );
