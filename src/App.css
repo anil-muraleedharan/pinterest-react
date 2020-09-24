@@ -7,7 +7,6 @@
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: whitesmoke;
 }
 
 .logo,
@@ -62,11 +61,14 @@
   background-color: whitesmoke;
 }
 
-.pinLink:hover,
-.pin:hover,
-.new-pin:hover {
+.pinLink,
+.new-pin,
+.pin {
   box-shadow: 0px 0px 4px #ccc;
-  opacity: 0.95;
+}
+
+.pinLink:hover {
+  box-shadow: 0px 0px 12px #aaa;
 }
 
 .card > img {
@@ -80,7 +82,6 @@
   height: auto;
   margin-top: 40px;
   border-radius: 12px;
-  background-color: whitesmoke;
   overflow: scroll;
   align-self: center;
 }
@@ -100,6 +101,7 @@
   width: 100%;
   height: auto;
   border-radius: 12px;
+  background-color: whitesmoke;
 }
 
 .pin-details,
@@ -131,7 +133,6 @@
 .description-input {
   border: none;
   border-bottom: solid 2px #333;
-  background-color: whitesmoke;
   margin: 30px 0 5px 0;
 }
 
@@ -148,7 +149,6 @@
   width: 900px;
   margin-top: 40px;
   border-radius: 12px;
-  background-color: whitesmoke;
 }
 
 .new-pin-form {
