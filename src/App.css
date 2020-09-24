@@ -21,11 +21,13 @@
   display: flex;
 }
 
-.avatar {
+.avatar,
+.creator-avatar {
   border-radius: 50%;
 }
 
-.username {
+.username,
+.creator-name {
   font-size: 25px;
   color: black;
   font-family: 'RobotoCondensedBold';
@@ -226,4 +228,23 @@
   font-family: 'RobotoCondensed';
   font-size: 30px;
   top: 15px;
+}
+
+.pin-creator {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.creator-avatar {
+  width: 40px;
+  height: auto;
+  padding: 10px 0 10px 0;
+  margin-right: 10px;
+}
+
+.creator-name {
+  opacity: 0.6;
+  font-family: 'RobotoCondensed';
+  font-weight: bolder;
 }

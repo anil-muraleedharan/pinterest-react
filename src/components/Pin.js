@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 const Pin = (props) => {
   const { id } = useParams();
   const [pinDetails, setPinDetails] = useState({});
-  const { imageSrc, title, description } = pinDetails;
+  const { imageSrc, title, description, name, avatar_url } = pinDetails;
+  console.log(pinDetails);
 
   useEffect(() => {
     fetch(`/api/getPin/${id}`)
@@ -20,6 +21,14 @@ const Pin = (props) => {
       <div className='pin-details'>
         <h3 className='pin-title'>{title}</h3>
         <p className='pin-description'>{description}</p>
+        <div className='pin-creator'>
+          <img
+            src={avatar_url}
+            className='creator-avatar'
+            alt='creator-avatar'
+          />
+          <p className='creator-name'>{name}</p>
+        </div>
       </div>
     </div>
   );
