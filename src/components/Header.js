@@ -15,7 +15,7 @@ const Header = ({ userData }) => {
             <img src={add} className='add-icon' alt='add-icon' />
           </Link>
         </div>
-        <Link to={`/user/${userData.id}`} style={{ textDecoration: 'none' }}>
+        <Link to='/myProfile' style={{ textDecoration: 'none' }}>
           <div className='user-data'>
             <p className='username'>{userData.name}</p>
             <img src={userData.avatar_url} className='avatar' alt='avatar' />

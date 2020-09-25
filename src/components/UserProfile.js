@@ -1,14 +1,20 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Dashboard from './Dashboard';
 
-const UserProfile = ({ userData }) => {
-  const { id } = useParams();
+const UserProfile = (props) => {
+  const [userData, setUserData] = useState({});
+
+  useEffect(() => {
+    fetch('/api/getUserData')
+      .then((res) => res.json())
+      .then(setUserData);
+  }, []);
+
   return (
     <div>
       <img src={userData.avatar_url} />
       <p>{userData.name}</p>
-      <Dashboard userId={id} dataURL='/api/getAllMyPins' />
+      <Dashboard userId={userData.id} dataURL='/api/getAllMyPins' />
     </div>
   );
 };

@@ -30,7 +30,7 @@ const App = () => {
         <Route exact path='/pin/:id'>
           {userData.isAuthenticated ? <Pin /> : <Redirect to='/' />}
         </Route>
-        <Route exact path='/user/:id'>
+        <Route exact path='/myProfile'>
           {userData.isAuthenticated ? (
             <UserProfile userData={userData} />
           ) : (
