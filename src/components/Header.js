@@ -7,20 +7,17 @@ const Header = ({ userData }) => {
   if (userData.isAuthenticated) {
     return (
       <div className='header'>
+        <Link to='/'>
+          <img src={logo} className='logo' alt='logo' />
+        </Link>
         <div className='header-left-end'>
-          <Link to='/'>
-            <img src={logo} className='logo' alt='logo' />
-          </Link>
           <Link to='/newPin'>
             <img src={add} className='add-icon' alt='add-icon' />
           </Link>
-        </div>
-        <Link to='/myProfile' style={{ textDecoration: 'none' }}>
-          <div className='user-data'>
-            <p className='username'>{userData.name}</p>
+          <Link to='/myProfile' style={{ textDecoration: 'none' }}>
             <img src={userData.avatar_url} className='avatar' alt='avatar' />
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     );
   }
