@@ -28,6 +28,9 @@ const Pin = (props) => {
       <div className='pin-details'>
         <h3 className='pin-title'>{title}</h3>
         <p className='pin-description'>{description}</p>
+        <p className='created-time'>
+          Created on {new Date(createdAt).toLocaleString()}
+        </p>
         <div className='pin-creator'>
           <img
             src={avatar_url}
@@ -36,9 +39,6 @@ const Pin = (props) => {
           />
           <p className='creator-name'>{name}</p>
         </div>
-        <p className='created-time'>
-          Created on {new Date(createdAt).toLocaleString()}
-        </p>
       </div>
     </div>
   );

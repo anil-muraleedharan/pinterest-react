@@ -124,9 +124,9 @@
 
 .pin-description,
 .description-input {
-  font-size: 20px;
-  font-weight: bold;
-  opacity: 0.7;
+  font-size: 19px;
+  line-height: 28px;
+  opacity: 0.9;
   margin: 5px 0;
   overflow: wrap;
   font-family: 'RobotoCondensed';
@@ -234,7 +234,7 @@
 .pin-creator {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .creator-avatar {
@@ -244,17 +244,16 @@
 }
 
 .creator-name {
-  font-size: 22px;
-  margin: 2px;
-  opacity: 0.6;
+  font-size: 24px;
+  margin: 0px;
+  opacity: 0.8;
   font-family: 'RobotoCondensed';
   font-weight: bolder;
 }
 
 .created-time {
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'RobotoCondensed';
-  font-weight: bold;
-  opacity: 0.6;
-  margin: 8px 0px;
+  opacity: 0.5;
+  margin: 12px 0 5px 0;
 }
