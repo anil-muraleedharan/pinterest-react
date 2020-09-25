@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
-import Dashboard from './components/Dashboard';
+import HomePage from './components/HomePage';
 import Pin from './components/Pin';
 import NewPin from './components/NewPin';
 import IndexPage from './components/IndexPage';
@@ -22,7 +22,7 @@ const App = () => {
       <Header userData={userData} />
       <Switch>
         <Route exact path='/'>
-          {userData.isAuthenticated ? <Dashboard /> : <IndexPage />}
+          {userData.isAuthenticated ? <HomePage /> : <IndexPage />}
         </Route>
         <Route exact path='/newPin'>
           {userData.isAuthenticated ? <NewPin /> : <Redirect to='/' />}

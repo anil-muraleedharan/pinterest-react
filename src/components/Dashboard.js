@@ -13,7 +13,7 @@ const Dashboard = (props) => {
   const [pinsData, setPinsData] = useState([]);
 
   useEffect(() => {
-    fetch('/api/getAllPins')
+    fetch(props.dataURL)
       .then((res) => res.json())
       .then(setPinsData);
   }, []);
