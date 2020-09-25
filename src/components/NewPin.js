@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import addIcon from '../images/add.png';
 
 const NewPin = (props) => {
   const history = useHistory();
@@ -31,6 +32,23 @@ const NewPin = (props) => {
           className='image-input'
           onChange={handleImageChange}
         />
+        <label for='image-input'>
+          <div className='add-image-container'>
+            {image ? (
+              <img
+                src={URL.createObjectURL(image)}
+                alt='image-preview'
+                className='image-preview'
+              />
+            ) : (
+              <img
+                src={addIcon}
+                alt='add-image-icon'
+                className='add-image-icon'
+              />
+            )}
+          </div>
+        </label>
       </div>
       <div className='details-input'>
         <input

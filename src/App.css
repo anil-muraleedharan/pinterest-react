@@ -106,6 +106,29 @@
   height: auto;
 }
 
+.image-input {
+  display: none;
+}
+
+.add-image-container {
+  width: 90%;
+  border: solid 3px #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-image-icon {
+  width: 10%;
+  margin-left: 45%;
+}
+
+.image-preview {
+  padding: 1%;
+  width: 98%;
+  height: auto;
+}
+
 .pin-image {
   width: 100%;
   height: auto;
@@ -162,13 +185,15 @@
 }
 
 .add-image-container {
-  border: solid 1px;
+  border: solid 3px #ccc;
+  min-height: 95%;
+  border-radius: 6px;
   width: 100%;
-  height: 50%;
+  margin-top: 2%;
 }
 
 .new-pin {
-  min-height: 500px;
+  min-height: 300px;
   height: auto;
   display: flex;
   width: 900px;
