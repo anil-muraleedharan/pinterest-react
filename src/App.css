@@ -37,13 +37,21 @@
   display: flex;
 }
 
-.dashboard {
+.home-dashboard,
+.profile-dashboard {
   display: flex;
   flex-wrap: wrap;
   align-self: center;
   justify-content: center;
-  height: 90vh;
   overflow: scroll;
+}
+
+.home-dashboard {
+  height: 90vh;
+}
+
+.profile-dashboard {
+  height: 73vh;
 }
 
 .pinLink {
@@ -292,4 +300,26 @@
   font-weight: bold;
   font-size: 19px;
   margin: 4px 12px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 25px 0;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.profile-username {
+  font-size: 40px;
+  font-family: 'RobotoCondensedBold';
+  margin: 15px;
+}
+
+.something {
+  width: 10px;
 }

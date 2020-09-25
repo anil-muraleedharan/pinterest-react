@@ -22,7 +22,7 @@ const Dashboard = (props) => {
   const columns = columnsData.map((columnData, index) => (
     <Cards cardsData={columnData} key={index + 1} />
   ));
-  return <div className='dashboard'>{columns}</div>;
+  return <div className={props.className}>{columns}</div>;
 };
 
 export default Dashboard;

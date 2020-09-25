@@ -12,9 +12,15 @@ const UserProfile = (props) => {
 
   return (
     <div>
-      <img src={userData.avatar_url} />
-      <p>{userData.name}</p>
-      <Dashboard userId={userData.id} dataURL='/api/getAllMyPins' />
+      <div className='profile-header'>
+        <img src={userData.avatar_url} className='profile-avatar' />
+        <p className='profile-username'>{userData.name}</p>
+      </div>
+      <Dashboard
+        userId={userData.id}
+        dataURL='/api/getAllMyPins'
+        className='profile-dashboard'
+      />
     </div>
   );
 };
