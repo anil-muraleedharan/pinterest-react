@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Pin from './components/Pin';
 import NewPin from './components/NewPin';
 import IndexPage from './components/IndexPage';
+import UserProfile from './components/UserProfile';
 
 const App = () => {
   const [userData, setUserData] = useState({});
@@ -28,6 +29,13 @@ const App = () => {
         </Route>
         <Route exact path='/pin/:id'>
           {userData.isAuthenticated ? <Pin /> : <Redirect to='/' />}
+        </Route>
+        <Route exact path='/user/:id'>
+          {userData.isAuthenticated ? (
+            <UserProfile userData={userData} />
+          ) : (
+            <Redirect to='/' />
+          )}
         </Route>
       </Switch>
     </div>
