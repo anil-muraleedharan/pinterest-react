@@ -114,6 +114,10 @@
   margin: 0 20px;
 }
 
+.details-input {
+  margin-top: 40px;
+}
+
 .pin-title,
 .title-input {
   font-size: 35px;
@@ -130,6 +134,16 @@
   margin: 5px 0;
   overflow: wrap;
   font-family: 'RobotoCondensed';
+}
+
+.title-input,
+.description-input {
+  width: 80%;
+}
+
+.title-input:focus,
+.description-input:focus {
+  outline: none;
 }
 
 .title-input,
@@ -231,10 +245,11 @@
   top: 15px;
 }
 
-.pin-creator {
+.pin-creator,
+.likes-container {
   display: flex;
   flex-direction: row;
-  margin: 20px 0;
+  margin: 20px 50px 30px 0;
 }
 
 .creator-avatar {
@@ -256,4 +271,25 @@
   font-family: 'RobotoCondensed';
   opacity: 0.5;
   margin: 12px 0 5px 0;
+}
+
+.pin-add-details {
+  display: flex;
+}
+
+.likes-container {
+  cursor: pointer;
+}
+
+.like-icon {
+  width: 25px;
+  height: 25px;
+  opacity: 0.8;
+}
+
+.likes-count {
+  font-family: 'RobotoCondensed';
+  font-weight: bold;
+  font-size: 19px;
+  margin: 4px 12px;
 }
