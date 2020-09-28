@@ -10,15 +10,15 @@ const splitColumnWise = (list) => {
 };
 
 const Dashboard = (props) => {
-  const [pinsData, setPinsData] = useState([]);
+  const [pins, setPins] = useState([]);
 
   useEffect(() => {
     fetch(props.dataURL)
       .then((res) => res.json())
-      .then(setPinsData);
+      .then(({ pins }) => setPins(pins));
   }, []);
 
-  const columnsData = splitColumnWise(pinsData);
+  const columnsData = splitColumnWise(pins);
   const columns = columnsData.map((columnData, index) => (
     <Cards cardsData={columnData} key={index + 1} />
   ));

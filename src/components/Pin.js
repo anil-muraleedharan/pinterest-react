@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Like from './Like';
 
 const Pin = (props) => {
@@ -13,6 +13,7 @@ const Pin = (props) => {
     name,
     avatar_url,
     createdAt,
+    createdBy,
   } = pinDetails;
 
   useEffect(() => {
@@ -46,14 +47,16 @@ const Pin = (props) => {
           Created on {new Date(createdAt).toLocaleString()}
         </p>
         <div className='pin-add-details'>
-          <div className='pin-creator'>
-            <img
-              src={avatar_url}
-              className='creator-avatar'
-              alt='creator-avatar'
-            />
-            <p className='creator-name'>{name}</p>
-          </div>
+          <Link to={`/user/${createdBy}`} style={{ textDecoration: 'none' }}>
+            <div className='pin-creator'>
+              <img
+                src={avatar_url}
+                className='creator-avatar'
+                alt='creator-avatar'
+              />
+              <p className='creator-name'>{name}</p>
+            </div>
+          </Link>
           <Like likes={likesCount} addLike={addLike} />
         </div>
       </div>

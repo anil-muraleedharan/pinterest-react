@@ -9,33 +9,29 @@ import IndexPage from './components/IndexPage';
 import UserProfile from './components/UserProfile';
 
 const App = () => {
-  const [userData, setUserData] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch('/api/getUserData')
+    fetch('/api/isUserAuth')
       .then((res) => res.json())
-      .then(setUserData);
+      .then(setUser);
   }, []);
 
   return (
     <div className='App'>
-      <Header userData={userData} />
+      {user.isUserAuth && <Header userId={user.id} />}
       <Switch>
         <Route exact path='/'>
-          {userData.isAuthenticated ? <HomePage /> : <IndexPage />}
+          {user.isUserAuth ? <HomePage /> : <IndexPage />}
         </Route>
         <Route exact path='/newPin'>
-          {userData.isAuthenticated ? <NewPin /> : <Redirect to='/' />}
+          {user.isUserAuth ? <NewPin /> : <Redirect to='/' />}
         </Route>
         <Route exact path='/pin/:id'>
-          {userData.isAuthenticated ? <Pin /> : <Redirect to='/' />}
+          {user.isUserAuth ? <Pin /> : <Redirect to='/' />}
         </Route>
-        <Route exact path='/myProfile'>
-          {userData.isAuthenticated ? (
-            <UserProfile userData={userData} />
-          ) : (
-            <Redirect to='/' />
-          )}
+        <Route exact path='/user/:id'>
+          {user.isUserAuth ? <UserProfile /> : <Redirect to='/' />}
         </Route>
       </Switch>
     </div>
