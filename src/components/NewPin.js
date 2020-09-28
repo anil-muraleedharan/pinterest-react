@@ -37,15 +37,11 @@ const NewPin = (props) => {
             {image ? (
               <img
                 src={URL.createObjectURL(image)}
-                alt='image-preview'
+                alt='preview'
                 className='image-preview'
               />
             ) : (
-              <img
-                src={addIcon}
-                alt='add-image-icon'
-                className='add-image-icon'
-              />
+              <img src={addIcon} alt='add-icon' className='add-image-icon' />
             )}
           </div>
         </label>
