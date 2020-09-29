@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import add from '../images/add.png';
+import UserContext from '../UserContext';
 
-const Header = ({ userId }) => {
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    fetch(`/api/getUserData/${userId}`)
-      .then((res) => res.json())
-      .then(setUser);
-  }, []);
+const Header = () => {
+  const { user } = useContext(UserContext);
 
   return (
     <div className='header'>
@@ -21,7 +16,7 @@ const Header = ({ userId }) => {
         <Link to='/newPin'>
           <img src={add} className='add-icon' alt='add-icon' />
         </Link>
-        <Link to={`/user/${userId}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/user/${user.id}`} style={{ textDecoration: 'none' }}>
           <img src={user.avatar_url} className='avatar' alt='avatar' />
         </Link>
       </div>
