@@ -20,7 +20,7 @@ const Pin = (props) => {
     fetch(`/api/getPin/${id}`)
       .then((res) => res.json())
       .then(setPinDetails);
-  }, [likesCount]);
+  }, [id, likesCount]);
 
   useEffect(() => {
     setLikesCount(pinDetails.likes);

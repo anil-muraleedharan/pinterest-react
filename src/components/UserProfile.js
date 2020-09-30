@@ -10,7 +10,7 @@ const UserProfile = (props) => {
     fetch(`/api/getUserData/${id}`)
       .then((res) => res.json())
       .then(setUserData);
-  }, []);
+  }, [id]);
 
   return (
     <div>

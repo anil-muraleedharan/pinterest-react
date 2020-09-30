@@ -16,7 +16,7 @@ const Dashboard = (props) => {
     fetch(props.dataURL)
       .then((res) => res.json())
       .then(({ pins }) => setPins(pins));
-  }, []);
+  }, [props.dataURL]);
 
   const columnsData = splitColumnWise(pins);
   const columns = columnsData.map((columnData, index) => (
