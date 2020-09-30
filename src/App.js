@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
@@ -8,8 +8,8 @@ import NewPin from './components/NewPin';
 import IndexPage from './components/IndexPage';
 import UserProfile from './components/UserProfile';
 import UserContext from './UserContext';
-import PublicRoute from './components/PublicRoute';
-import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './routes/PublicRoute';
+import PrivateRoute from './routes/PrivateRoute';
 
 const App = () => {
   const [user, setUser] = useState({});
