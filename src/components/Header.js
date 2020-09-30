@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../images/logo.png';
 import add from '../images/add.png';
 import UserContext from '../UserContext';
+import Logout from './Logout';
 
 const Header = () => {
   const { user } = useContext(UserContext);
@@ -19,6 +20,7 @@ const Header = () => {
         <Link to={`/user/${user.id}`} style={{ textDecoration: 'none' }}>
           <img src={user.avatar_url} className='avatar' alt='avatar' />
         </Link>
+        <Logout />
       </div>
     </div>
   );

@@ -206,6 +206,10 @@
   cursor: pointer;
 }
 
+.logout {
+  margin: 15px;
+}
+
 .add-pin {
   margin: 30px 0;
 }
