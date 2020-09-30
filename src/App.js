@@ -8,6 +8,8 @@ import NewPin from './components/NewPin';
 import IndexPage from './components/IndexPage';
 import UserProfile from './components/UserProfile';
 import UserContext from './UserContext';
+import PublicRoute from './components/PublicRoute';
+import PrivateRoute from './components/PrivateRoute';
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -19,25 +21,15 @@ const App = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, setUser }}>
       <div className='App'>
         {user.isAuth && <Header />}
         <Switch>
-          <Route exact path='/login'>
-            {user.isAuth ? <Redirect to='/' /> : <IndexPage />}
-          </Route>
-          <Route exact path='/'>
-            {user.isAuth ? <HomePage /> : <Redirect to='/login' />}
-          </Route>
-          <Route exact path='/newPin'>
-            {user.isAuth ? <NewPin /> : <Redirect to='/login' />}
-          </Route>
-          <Route exact path='/pin/:id'>
-            {user.isAuth ? <Pin /> : <Redirect to='/login' />}
-          </Route>
-          <Route exact path='/user/:id'>
-            {user.isAuth ? <UserProfile /> : <Redirect to='/login' />}
-          </Route>
+          <PublicRoute exact path='/login' component={IndexPage} />
+          <PrivateRoute exact path='/' component={HomePage} />
+          <PrivateRoute exact path='/newPin' component={NewPin} />
+          <PrivateRoute exact path='/pin/:id' component={Pin} />
+          <PrivateRoute exact path='/user/:id' component={UserProfile} />
         </Switch>
       </div>
     </UserContext.Provider>
