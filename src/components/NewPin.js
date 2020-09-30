@@ -64,7 +64,7 @@ const NewPin = (props) => {
           onChange={handleDescriptionChange}
           value={description}
         />
-        <button className='submit' onClick={handleSubmit}>
+        <button className='button add-pin' onClick={handleSubmit}>
           Add Pin
         </button>
       </div>
