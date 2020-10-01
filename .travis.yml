@@ -1,0 +1,22 @@
+language: node_js
+node_js: lts/*
+os:
+  - linux
+env:
+  - NODE_ENV=test
+install:
+  - rm -rf public src package.json package-lock.json
+services:
+  - redis-server
+jobs:
+  include:
+    - stage: Deploy
+      script:
+        - './scripts/build.sh'
+      deploy:
+        provider: heroku
+        api_key:
+          secure: LzWvNuBPSeCQ09UvpGx2kdNt/faLDnjeDW6qkdoMcN6qIIL9HHsjWPOsAadn5NulxIJcMqlZjG67PdJsLykVQqt/JwmTv7qC6BJ5wardMQWFWE+XiGGu5XIkWmTaU6o4Ns0nlLZzXwCVXarfsVdmRn4msTSrvv+Rvr0JTTwTkZSf6BHeDsFkH4jLh3TZOfujrsYyVcDEmfRlXYqaQ5B98F8Qrxwuj3jjTiVc5sXaWOjp2QZEhYhdZdSy95ATBkOI9fxiptBgv/FqviA7AzODQP/eP7pWBPTB8KQKqUzot70C81tABuVNV+g0W1QKmLp5wNTpCAUvSvUngPXy6uqGs46G7MdkgVTjexXVJp/Etts+ZF03Jr+uwFaGrIkMKkQSGk/BYH/ay0j3lt1x6Kqevws6zWk0f49ZERuT90P7f+O9rLipNM5kkvCpCbuJPtRYGsrVCDXUxLUo+YcY1k5k/1zJokpOBB/z4tek6LnudT4hS0XSIqcJQtez+sVoqIvNqYOtUJjKQjTHrjU8GQKcv+rZh1hxo/IZHLv/8R6tzVk91hmi7jYIfs9Q8ERdXfjpm+0NAUaN+vqE2Z73GGkPHSw8/EqWsdX65ySpj2sY3mDWzRZe5Q7dRsbiGDEExwE/mcwageAbJEB5S1dC3fEOzZamxEivH0kkheqWqXRi1i4=
+        skip_cleanup: true
+        app: my-pinterest-react
+        run: restart
