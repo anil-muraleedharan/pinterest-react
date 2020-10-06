@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import addIcon from '../images/add.png';
+import ImageInput from './ImageInput';
 
 const NewPin = (props) => {
   const history = useHistory();
@@ -10,7 +10,7 @@ const NewPin = (props) => {
 
   const handleTitleChange = ({ target }) => setTitle(target.value);
   const handleDescriptionChange = ({ target }) => setDescription(target.value);
-  const handleImageChange = ({ target }) => setImage(target.files[0]);
+  const handleImageChange = (image) => setImage(image);
   const handleSubmit = (event) => {
     event.preventDefault();
     const formDetails = new FormData();
@@ -25,27 +25,7 @@ const NewPin = (props) => {
 
   return (
     <div className='new-pin'>
-      <div className='image-input-container'>
-        <input
-          type='file'
-          id='image-input'
-          className='image-input'
-          onChange={handleImageChange}
-        />
-        <label for='image-input'>
-          <div className='add-image-container'>
-            {image ? (
-              <img
-                src={URL.createObjectURL(image)}
-                alt='preview'
-                className='image-preview'
-              />
-            ) : (
-              <img src={addIcon} alt='add-icon' className='add-image-icon' />
-            )}
-          </div>
-        </label>
-      </div>
+      <ImageInput handleImageChange={handleImageChange} />
       <div className='details-input'>
         <input
           type='text'
