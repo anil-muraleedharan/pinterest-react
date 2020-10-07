@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../UserContext';
+import { LogoutButton } from './StyledButton';
 
 const Logout = (props) => {
   const history = useHistory();
@@ -10,11 +11,7 @@ const Logout = (props) => {
       setUser({ isAuth: false });
       history.push('/login');
     });
-  return (
-    <button className='button logout' onClick={handleClick}>
-      Logout
-    </button>
-  );
+  return <LogoutButton onClick={handleClick}>Logout</LogoutButton>;
 };
 
 export default Logout;

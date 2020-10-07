@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import ImageInput from './ImageInput';
+import { AddPinButton } from './StyledButton';
 
 const NewPin = (props) => {
   const history = useHistory();
@@ -44,9 +45,7 @@ const NewPin = (props) => {
           onChange={handleDescriptionChange}
           value={description}
         />
-        <button className='button add-pin' onClick={handleSubmit}>
-          Add Pin
-        </button>
+        <AddPinButton onClick={handleSubmit}>Add Pin</AddPinButton>
       </div>
     </div>
   );
