@@ -13,12 +13,10 @@ const CardImg = styled.img`
   width: 100%;
 `;
 
-const Card = ({ cardData }) => {
-  return (
-    <CardContainer>
-      <CardImg src={cardData.imageSrc} alt={`image_${cardData.id}`} />
-    </CardContainer>
-  );
-};
+const Card = ({ cardData }) => (
+  <CardContainer>
+    <CardImg src={cardData.imageSrc} alt={`image_${cardData.id}`} />
+  </CardContainer>
+);
 
 export default Card;
