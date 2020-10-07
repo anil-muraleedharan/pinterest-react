@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Cards from './Cards';
+
+const Columns = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+  overflow: scroll;
+  height: ${(props) => (props.isHomePage ? '90vh' : '73vh')};
+`;
 
 const splitColumnWise = (list) => {
   const columns = [[], [], [], [], []];
@@ -22,7 +32,7 @@ const Dashboard = (props) => {
   const columns = columnsData.map((columnData, index) => (
     <Cards cardsData={columnData} key={index + 1} />
   ));
-  return <div className={props.className}>{columns}</div>;
+  return <Columns isHomePage={props.isHomePage}>{columns}</Columns>;
 };
 
 export default Dashboard;

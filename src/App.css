@@ -26,23 +26,6 @@
   display: flex;
 }
 
-.home-dashboard,
-.profile-dashboard {
-  display: flex;
-  flex-wrap: wrap;
-  align-self: center;
-  justify-content: center;
-  overflow: scroll;
-}
-
-.home-dashboard {
-  height: 90vh;
-}
-
-.profile-dashboard {
-  height: 73vh;
-}
-
 .new-pin,
 .pin {
   box-shadow: 0px 0px 4px #ccc;

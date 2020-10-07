@@ -22,10 +22,7 @@ const UserProfile = (props) => {
         />
         <p className='profile-username'>{userData.name}</p>
       </div>
-      <Dashboard
-        dataURL={`/api/getUserPins/${id}`}
-        className='profile-dashboard'
-      />
+      <Dashboard dataURL={`/api/getUserPins/${id}`} isHomePage={false} />
     </div>
   );
 };
