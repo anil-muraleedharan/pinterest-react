@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import StyledPinContainer from './StyledPinContainer';
 import { TitleInput, DescriptionInput } from './StyledInput';
 import ImageInput from './ImageInput';
 import { AddPinButton } from './StyledButton';
+
+const InputContainer = styled.div`
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 40px 20px;
+`;
 
 const NewPin = (props) => {
   const history = useHistory();
@@ -29,7 +38,7 @@ const NewPin = (props) => {
   return (
     <StyledPinContainer>
       <ImageInput handleImageChange={handleImageChange} />
-      <div className='details-input'>
+      <InputContainer>
         <TitleInput
           type='text'
           placeholder='Give a title for your pin...'
@@ -44,7 +53,7 @@ const NewPin = (props) => {
           value={description}
         />
         <AddPinButton onClick={handleSubmit}>Add Pin</AddPinButton>
-      </div>
+      </InputContainer>
     </StyledPinContainer>
   );
 };

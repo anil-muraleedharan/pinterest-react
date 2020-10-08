@@ -21,17 +21,12 @@
   background-color: whitesmoke;
 }
 
-.pin-details,
-.details-input {
+.pin-details {
   width: 58%;
   display: flex;
   flex-direction: column;
   text-align: left;
   margin: 0 20px;
-}
-
-.details-input {
-  margin-top: 40px;
 }
 
 .pin-title {
