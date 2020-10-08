@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import StyledPinContainer from './StyledPinContainer';
+import { TitleInput, DescriptionInput } from './StyledInput';
 import ImageInput from './ImageInput';
 import { AddPinButton } from './StyledButton';
 
@@ -29,20 +30,16 @@ const NewPin = (props) => {
     <StyledPinContainer>
       <ImageInput handleImageChange={handleImageChange} />
       <div className='details-input'>
-        <input
+        <TitleInput
           type='text'
-          id='title-input'
           placeholder='Give a title for your pin...'
-          className='title-input'
           onChange={handleTitleChange}
           value={title}
         />
         <br />
-        <input
+        <DescriptionInput
           type='text'
-          id='description-input'
           placeholder='Give a description for your pin...'
-          className='description-input'
           onChange={handleDescriptionChange}
           value={description}
         />

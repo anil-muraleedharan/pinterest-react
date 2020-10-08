@@ -34,39 +34,20 @@
   margin-top: 40px;
 }
 
-.pin-title,
-.title-input {
+.pin-title {
   font-size: 35px;
   margin: 35px 0 10px 0;
   overflow: wrap;
   font-family: 'RobotoCondensedBold';
 }
 
-.pin-description,
-.description-input {
+.pin-description {
   font-size: 19px;
   line-height: 28px;
   opacity: 0.9;
   margin: 5px 0;
   overflow: wrap;
   font-family: 'RobotoCondensed';
-}
-
-.title-input,
-.description-input {
-  width: 80%;
-}
-
-.title-input:focus,
-.description-input:focus {
-  outline: none;
-}
-
-.title-input,
-.description-input {
-  border: none;
-  border-bottom: solid 2px #333;
-  margin: 30px 0 5px 0;
 }
 
 .new-pin-form {
