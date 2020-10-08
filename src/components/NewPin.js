@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import StyledPinContainer from './StyledPinContainer';
 import ImageInput from './ImageInput';
 import { AddPinButton } from './StyledButton';
 
@@ -25,7 +26,7 @@ const NewPin = (props) => {
   };
 
   return (
-    <div className='new-pin'>
+    <StyledPinContainer>
       <ImageInput handleImageChange={handleImageChange} />
       <div className='details-input'>
         <input
@@ -47,7 +48,7 @@ const NewPin = (props) => {
         />
         <AddPinButton onClick={handleSubmit}>Add Pin</AddPinButton>
       </div>
-    </div>
+    </StyledPinContainer>
   );
 };
 

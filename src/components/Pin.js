@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import StyledPinContainer from './StyledPinContainer';
 import Like from './Like';
 
 const Pin = (props) => {
@@ -40,7 +41,7 @@ const Pin = (props) => {
       createdBy,
     } = pinDetails;
     return (
-      <div className='pin'>
+      <StyledPinContainer>
         <div className='pin-image-container'>
           <img src={`/${imageSrc}`} alt={`image_${id}`} className='pin-image' />
         </div>
@@ -64,7 +65,7 @@ const Pin = (props) => {
             <Like likes={likesCount} addLike={addLike} />
           </div>
         </div>
-      </div>
+      </StyledPinContainer>
     );
   }
   return (

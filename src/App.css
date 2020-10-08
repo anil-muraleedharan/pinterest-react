@@ -8,26 +8,6 @@
   border-radius: 50%;
 }
 
-.new-pin,
-.pin {
-  box-shadow: 0px 0px 4px #ccc;
-}
-
-.pin,
-.new-pin {
-  display: flex;
-  width: 900px;
-  height: auto;
-  margin-top: 40px;
-  border-radius: 12px;
-  overflow: scroll;
-  align-self: center;
-}
-
-.new-pin {
-  justify-content: center;
-}
-
 .pin-image-container {
   width: 40%;
   margin: 1.5%;
@@ -87,15 +67,6 @@
   border: none;
   border-bottom: solid 2px #333;
   margin: 30px 0 5px 0;
-}
-
-.new-pin {
-  min-height: 300px;
-  height: auto;
-  display: flex;
-  width: 900px;
-  margin-top: 40px;
-  border-radius: 12px;
 }
 
 .new-pin-form {
