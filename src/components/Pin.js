@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import StyledPinContainer from './StyledPinContainer';
 import Like from './Like';
+import UserDetails from './UserDetails';
 
 const Pin = (props) => {
   const { id } = useParams();
@@ -30,6 +31,7 @@ const Pin = (props) => {
     })
       .then((res) => res.json())
       .then(({ likes }) => setLikesCount(likes));
+
   if (isLoaded) {
     const {
       imageSrc,
@@ -43,7 +45,7 @@ const Pin = (props) => {
     return (
       <StyledPinContainer>
         <div className='pin-image-container'>
-          <img src={`/${imageSrc}`} alt={`image_${id}`} className='pin-image' />
+          <img src={`${imageSrc}`} alt={`image_${id}`} className='pin-image' />
         </div>
         <div className='pin-details'>
           <h3 className='pin-title'>{title}</h3>
@@ -52,16 +54,7 @@ const Pin = (props) => {
             Created on {new Date(createdAt).toLocaleString()}
           </p>
           <div className='pin-add-details'>
-            <Link to={`/user/${createdBy}`} style={{ textDecoration: 'none' }}>
-              <div className='pin-creator'>
-                <img
-                  src={avatar_url}
-                  className='creator-avatar'
-                  alt='creator-avatar'
-                />
-                <p className='creator-name'>{name}</p>
-              </div>
-            </Link>
+            <UserDetails id={createdBy} name={name} avatar={avatar_url} />
             <Like likes={likesCount} addLike={addLike} />
           </div>
         </div>
