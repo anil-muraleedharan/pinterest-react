@@ -201,25 +201,3 @@
   font-size: 19px;
   margin: 4px 12px;
 }
-
-.profile-header {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0 25px 0;
-}
-
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
-
-.profile-username {
-  font-size: 40px;
-  font-family: 'RobotoCondensedBold';
-  margin: 15px;
-}
-
-.something {
-  width: 10px;
-}
