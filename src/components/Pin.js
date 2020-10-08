@@ -1,8 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import StyledPinContainer from './StyledPinContainer';
 import Like from './Like';
 import UserDetails from './UserDetails';
+
+const ImageContainer = styled.div`
+  width: 40%;
+  margin: 1.5%;
+  height: auto;
+`;
+
+const PinImage = styled.img`
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background-color: whitesmoke;
+`;
+
+const PinDetails = styled.div`
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 0 20px;
+`;
+
+const PinAdditionalDetails = styled.div`
+  display: flex;
+`;
+
+const PinTitle = styled.h3`
+  font-size: 35px;
+  margin: 35px 0 10px 0;
+  overflow: wrap;
+  font-family: 'RobotoCondensedBold';
+`;
+
+const PinDescription = styled.p`
+  font-size: 19px;
+  line-height: 28px;
+  opacity: 0.9;
+  margin: 5px 0;
+  overflow: wrap;
+  font-family: 'RobotoCondensed';
+`;
+
+const PinTime = styled.p`
+  font-size: 16px;
+  font-family: 'RobotoCondensed';
+  opacity: 0.5;
+  margin: 12px 0 5px 0;
+`;
 
 const Pin = (props) => {
   const { id } = useParams();
@@ -44,25 +93,23 @@ const Pin = (props) => {
     } = pinDetails;
     return (
       <StyledPinContainer>
-        <div className='pin-image-container'>
-          <img src={`${imageSrc}`} alt={`image_${id}`} className='pin-image' />
-        </div>
-        <div className='pin-details'>
-          <h3 className='pin-title'>{title}</h3>
-          <p className='pin-description'>{description}</p>
-          <p className='created-time'>
-            Created on {new Date(createdAt).toLocaleString()}
-          </p>
-          <div className='pin-add-details'>
+        <ImageContainer>
+          <PinImage src={`${imageSrc}`} alt={`image_${id}`} />
+        </ImageContainer>
+        <PinDetails>
+          <PinTitle>{title}</PinTitle>
+          <PinDescription>{description}</PinDescription>
+          <PinTime>Created on {new Date(createdAt).toLocaleString()}</PinTime>
+          <PinAdditionalDetails>
             <UserDetails id={createdBy} name={name} avatar={avatar_url} />
             <Like likes={likesCount} addLike={addLike} />
-          </div>
-        </div>
+          </PinAdditionalDetails>
+        </PinDetails>
       </StyledPinContainer>
     );
   }
   return (
-    <div className='pin'>
+    <div>
       <p>Loading...</p>
     </div>
   );
