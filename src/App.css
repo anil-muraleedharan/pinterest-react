@@ -4,10 +4,6 @@
   text-align: center;
 }
 
-.creator-avatar {
-  border-radius: 50%;
-}
-
 .pin-image-container {
   width: 40%;
   margin: 1.5%;
@@ -47,27 +43,6 @@
 
 .new-pin-form {
   display: flex;
-}
-
-.pin-creator {
-  display: flex;
-  flex-direction: row;
-  margin: 20px 50px 30px 0;
-}
-
-.creator-avatar {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-}
-
-.creator-name {
-  color: black;
-  font-size: 24px;
-  margin: 0px;
-  opacity: 0.8;
-  font-family: 'RobotoCondensed';
-  font-weight: bolder;
 }
 
 .created-time {
