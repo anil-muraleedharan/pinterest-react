@@ -1,32 +1,65 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import addIcon from '../images/add.png';
 
+const AddImageIcon = styled.img`
+  width: 10%;
+  margin-left: 45%;
+`;
+
+const Preview = styled.img`
+  padding: 1%;
+  width: 98%;
+  height: auto;
+`;
+
+const PreviewContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: solid 3px #ccc;
+  min-height: 95%;
+  border-radius: 6px;
+  width: 100%;
+  margin-top: 2%;
+`;
+
+const ImageInputBox = styled.input`
+  display: none;
+`;
+
+const ImageInputContainer = styled.div`
+  width: 40%;
+  margin: 1.5%;
+  height: auto;
+`;
+
 const ImageInput = (props) => {
-  const [preview, setPreview] = useState({
-    src: addIcon,
-    className: 'add-image-icon',
-  });
+  const [image, setImage] = useState(undefined);
 
   const handleImageUpload = (event) => {
     const image = event.target.files[0];
     props.handleImageChange(image);
-    setPreview({ src: URL.createObjectURL(image), className: 'image-preview' });
+    setImage(URL.createObjectURL(image));
   };
 
   return (
-    <div className='image-input-container'>
-      <input
+    <ImageInputContainer className='image-input-container'>
+      <ImageInputBox
         type='file'
-        id='image-input'
-        className='image-input'
         onChange={handleImageUpload}
+        id='image-input'
       />
       <label for='image-input'>
-        <div className='add-image-container'>
-          <img src={preview.src} alt='preview' className={preview.className} />
-        </div>
+        <PreviewContainer className='add-image-container'>
+          {image ? (
+            <Preview src={image} alt='preview' />
+          ) : (
+            <AddImageIcon src={addIcon} alt='add-icon' />
+          )}
+        </PreviewContainer>
       </label>
-    </div>
+    </ImageInputContainer>
   );
 };
 
