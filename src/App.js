@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Switch } from 'react-router-dom';
-import './App.css';
+import styled from 'styled-components';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import Pin from './components/Pin';
@@ -10,6 +10,12 @@ import UserProfile from './components/UserProfile';
 import UserContext from './UserContext';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
+
+const AppContanier = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
 
 const App = () => {
   const [user, setUser] = useState({});
@@ -22,7 +28,7 @@ const App = () => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <div className='App'>
+      <AppContanier>
         {user.isAuth && <Header />}
         <Switch>
           <PublicRoute exact path='/login' component={IndexPage} />
@@ -31,7 +37,7 @@ const App = () => {
           <PrivateRoute exact path='/pin/:id' component={Pin} />
           <PrivateRoute exact path='/user/:id' component={UserProfile} />
         </Switch>
-      </div>
+      </AppContanier>
     </UserContext.Provider>
   );
 };
