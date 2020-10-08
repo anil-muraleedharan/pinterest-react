@@ -11,16 +11,20 @@ const Columns = styled.div`
   height: ${(props) => (props.isHomePage ? '90vh' : '73vh')};
 `;
 
-const splitColumnWise = (list) => {
-  const columns = [[], [], [], [], []];
+const splitColumnWise = (list, columnCount) => {
+  const columns = Array.from(Array(columnCount), () => []);
   list.forEach((card, index) => {
-    columns[index % 5].push(card);
+    columns[index % columnCount].push(card);
   });
   return columns;
 };
 
+const calculateColumnCount = () => Math.floor(window.innerWidth / 300);
+
 const Dashboard = (props) => {
   const [pins, setPins] = useState([]);
+  const [columnCount, setColumnCount] = useState(calculateColumnCount());
+  const [columnsData, setColumnsData] = useState([]);
 
   useEffect(() => {
     fetch(props.dataURL)
@@ -28,10 +32,18 @@ const Dashboard = (props) => {
       .then(({ pins }) => setPins(pins));
   }, [props.dataURL]);
 
-  const columnsData = splitColumnWise(pins);
+  useEffect(() => {
+    setColumnsData(splitColumnWise(pins, columnCount));
+  }, [pins, columnCount]);
+
+  window.addEventListener('resize', () =>
+    setColumnCount(calculateColumnCount())
+  );
+
   const columns = columnsData.map((columnData, index) => (
     <Cards cardsData={columnData} key={index + 1} />
   ));
+
   return <Columns isHomePage={props.isHomePage}>{columns}</Columns>;
 };
 

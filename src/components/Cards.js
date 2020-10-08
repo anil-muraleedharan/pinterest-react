@@ -10,7 +10,7 @@ const CardsContainer = styled.div`
 
 const PinLink = styled(Link)`
   display: block;
-  width: 230px;
+  width: 250px;
   overflow: hidden;
   border-radius: 12px;
   margin: 20px;
