@@ -1,28 +1,45 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import logo from '../images/logo.png';
 import add from '../images/add.png';
 import UserContext from '../UserContext';
 import Logout from './Logout';
 
+const StyledIcon = styled.img`
+  width: 40px;
+  height: auto;
+  padding: 10px;
+  border-radius: 50%;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const HeaderRightSideContainer = styled.div`
+  display: flex;
+`;
+
 const Header = () => {
   const { user } = useContext(UserContext);
 
   return (
-    <div className='header'>
+    <HeaderContainer>
       <Link to='/'>
-        <img src={logo} className='logo' alt='logo' />
+        <StyledIcon src={logo} alt='logo' />
       </Link>
-      <div className='header-left-end'>
+      <HeaderRightSideContainer>
         <Link to='/newPin'>
-          <img src={add} className='add-icon' alt='add-icon' />
+          <StyledIcon src={add} alt='add-icon' />
         </Link>
         <Link to={`/user/${user.id}`} style={{ textDecoration: 'none' }}>
-          <img src={user.avatar_url} className='avatar' alt='avatar' />
+          <StyledIcon src={user.avatar_url} alt='avatar' />
         </Link>
         <Logout />
-      </div>
-    </div>
+      </HeaderRightSideContainer>
+    </HeaderContainer>
   );
 };
 

@@ -4,26 +4,8 @@
   text-align: center;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-}
-
-.logo,
-.add-icon,
-.avatar {
-  width: 40px;
-  height: auto;
-  padding: 10px;
-}
-
-.avatar,
 .creator-avatar {
   border-radius: 50%;
-}
-
-.header-left-end {
-  display: flex;
 }
 
 .new-pin,
