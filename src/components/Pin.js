@@ -53,6 +53,14 @@ const PinTime = styled.p`
   margin: 12px 0 5px 0;
 `;
 
+const PinDescriptionPlaceholder = styled(PinDescription)`
+  color: #ccc;
+`;
+
+const PinTitlePlaceholder = styled(PinTitle)`
+  color: #ccc;
+`;
+
 const Pin = (props) => {
   const { id } = useParams();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -97,8 +105,18 @@ const Pin = (props) => {
           <PinImage src={`${imageSrc}`} alt={`image_${id}`} />
         </ImageContainer>
         <PinDetails>
-          <PinTitle>{title}</PinTitle>
-          <PinDescription>{description}</PinDescription>
+          {title ? (
+            <PinTitle>{title}</PinTitle>
+          ) : (
+            <PinTitlePlaceholder>No Title available...</PinTitlePlaceholder>
+          )}
+          {description ? (
+            <PinDescription>{description}</PinDescription>
+          ) : (
+            <PinDescriptionPlaceholder>
+              No description available...
+            </PinDescriptionPlaceholder>
+          )}
           <PinTime>Created on {new Date(createdAt).toLocaleString()}</PinTime>
           <PinAdditionalDetails>
             <UserDetails id={createdBy} name={name} avatar={avatar_url} />
