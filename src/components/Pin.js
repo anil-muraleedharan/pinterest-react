@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import StyledPinContainer from './StyledPinContainer';
 import Like from './Like';
 import UserDetails from './UserDetails';
+import PinTitle from './PinTitle';
+import PinDescription from './PinDescription';
 
 const ImageContainer = styled.div`
   width: 40%;
@@ -30,35 +32,11 @@ const PinAdditionalDetails = styled.div`
   display: flex;
 `;
 
-const PinTitle = styled.h3`
-  font-size: 35px;
-  margin: 35px 0 10px 0;
-  overflow: wrap;
-  font-family: 'RobotoCondensedBold';
-`;
-
-const PinDescription = styled.p`
-  font-size: 19px;
-  line-height: 28px;
-  opacity: 0.9;
-  margin: 5px 0;
-  overflow: wrap;
-  font-family: 'RobotoCondensed';
-`;
-
 const PinTime = styled.p`
   font-size: 16px;
   font-family: 'RobotoCondensed';
   opacity: 0.5;
   margin: 12px 0 5px 0;
-`;
-
-const PinDescriptionPlaceholder = styled(PinDescription)`
-  color: #ccc;
-`;
-
-const PinTitlePlaceholder = styled(PinTitle)`
-  color: #ccc;
 `;
 
 const Pin = (props) => {
@@ -105,18 +83,8 @@ const Pin = (props) => {
           <PinImage src={`${imageSrc}`} alt={`image_${id}`} />
         </ImageContainer>
         <PinDetails>
-          {title ? (
-            <PinTitle>{title}</PinTitle>
-          ) : (
-            <PinTitlePlaceholder>No Title available...</PinTitlePlaceholder>
-          )}
-          {description ? (
-            <PinDescription>{description}</PinDescription>
-          ) : (
-            <PinDescriptionPlaceholder>
-              No description available...
-            </PinDescriptionPlaceholder>
-          )}
+          <PinTitle title={title} />
+          <PinDescription description={description} />
           <PinTime>Created on {new Date(createdAt).toLocaleString()}</PinTime>
           <PinAdditionalDetails>
             <UserDetails id={createdBy} name={name} avatar={avatar_url} />
